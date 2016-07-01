@@ -3,3 +3,15 @@
 target
 .settings
 .classpath 
+WorkerApp/.settings
+WorkerApp/.classpath 
+WorkerApp/target
+WorkerApp/.project
+common/.settings
+common/.classpath 
+common/target
+common/.project
+ServiceApp/.settings
+ServiceApp/.classpath 
+ServiceApp/target
+ServiceApp/.project
