@@ -1,5 +1,7 @@
 package com.conf;
 
+import java.nio.charset.StandardCharsets;
+
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -27,6 +29,6 @@ public class Application{
 	
 	@RabbitListener(queues={RabbitConfig.helloWorldQueueName})
 	public void onMessage(Message data){
-		System.out.println((String)messageConverter.fromMessage(data));
+		System.out.println(new String((byte[])messageConverter.fromMessage(data), StandardCharsets.UTF_8));
 	}
 }
