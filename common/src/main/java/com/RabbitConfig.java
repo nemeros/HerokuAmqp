@@ -9,6 +9,8 @@ import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.MessageConverter;
+import org.springframework.amqp.support.converter.SimpleMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -61,5 +63,10 @@ public class RabbitConfig {
             throw new IllegalStateException("Environment variable [" + name + "] is not set.");
         }
         return env;
+    }
+    
+    @Bean
+    public MessageConverter initMessageConverter(){
+    	return new SimpleMessageConverter();
     }
 }
