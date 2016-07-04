@@ -3,11 +3,9 @@ package com;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
-import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.amqp.support.converter.SimpleMessageConverter;
@@ -44,11 +42,6 @@ public class RabbitConfig {
 //		return new CachingConnectionFactory("localhost");
 //	}
 	
-	
-    @Bean
-    public AmqpAdmin amqpAdmin() {
-        return new RabbitAdmin(connectionFactory());
-    }
 
     @Bean
     public RabbitTemplate rabbitTemplate() {
