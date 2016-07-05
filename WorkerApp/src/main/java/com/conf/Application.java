@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.MessageMq;
 import com.RabbitConfig;
+import com.dao.MessageDao;
 
 @EnableAutoConfiguration
 @ComponentScan("com*")
@@ -20,6 +21,8 @@ public class Application{
 	@Autowired
 	private MessageConverter messageConverter;
 	
+	@Autowired
+	private MessageDao msgDao;
 	
 	public static final void main(String[] args){
 		SpringApplication.run(Application.class, args);
@@ -28,6 +31,10 @@ public class Application{
 	
 	@RabbitListener(queues={RabbitConfig.helloWorldQueueName})
 	public void onMessage(Message data){
-		System.out.println((MessageMq)messageConverter.fromMessage(data));
+		
+		final MessageMq msg = (MessageMq)messageConverter.fromMessage(data);
+		
+		System.out.println(msg);
+		msgDao.saveMessage(msg);
 	}
 }
