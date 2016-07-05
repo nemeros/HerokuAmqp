@@ -22,7 +22,7 @@ public class RabbitConfig {
     public ConnectionFactory connectionFactory() {
         final URI ampqUrl;
         try {
-            ampqUrl = new URI(getEnvOrThrow("CLOUDAMQP_URL"));
+            ampqUrl = new URI(Utils.getEnvOrThrow("CLOUDAMQP_URL"));
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
@@ -54,14 +54,6 @@ public class RabbitConfig {
     @Bean
     public Queue queue() {
         return new Queue(RabbitConfig.helloWorldQueueName);
-    }
-
-    private static String getEnvOrThrow(String name) {
-        final String env = System.getenv(name);
-        if (env == null) {
-            throw new IllegalStateException("Environment variable [" + name + "] is not set.");
-        }
-        return env;
     }
     
     @Bean

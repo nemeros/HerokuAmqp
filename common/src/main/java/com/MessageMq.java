@@ -11,12 +11,28 @@ public class MessageMq implements Serializable{
 	
 	
 	
-	public String name;
-	public String valeur;
+	private String name;
+	private String valeur;
 
 	@Override
 	public String toString(){
 		return "{name: '" + name + "' ,valeur: '" + valeur + "'}";
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getValeur() {
+		return valeur;
+	}
+
+	public void setValeur(String valeur) {
+		this.valeur = valeur;
 	}
 	
 }
