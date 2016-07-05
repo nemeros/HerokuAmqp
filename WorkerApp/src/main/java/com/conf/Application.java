@@ -34,7 +34,6 @@ public class Application{
 		
 		final MessageMq msg = (MessageMq)messageConverter.fromMessage(data);
 		
-		System.out.println(msg);
 		msgDao.saveMessage(msg);
 	}
 }

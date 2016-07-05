@@ -10,6 +10,16 @@ public class MessageMq implements Serializable{
 	private static final long serialVersionUID = -2969170622111975606L;
 	
 	
+	public MessageMq(){
+		
+	}
+	
+	
+	public MessageMq(String name, String valeur){
+		this.name = name;
+		this.valeur = valeur;
+	}
+	
 	
 	private String name;
 	private String valeur;

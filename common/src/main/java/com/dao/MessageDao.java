@@ -40,7 +40,8 @@ public class MessageDao {
 		StringBuilder query = new StringBuilder(150);
 		query.append("SELECT NAME, VALEUR FROM T_MESSAGE");
 		
-		
-		return this.jdbcTemplate.queryForList(query.toString(), MessageMq.class);
+		return this.jdbcTemplate.query(query.toString(), (rs, cnt) -> {
+			return new MessageMq(rs.getString("NAME"), rs.getString("VALEUR"));
+		});
 	}
 }
