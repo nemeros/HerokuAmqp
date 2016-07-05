@@ -7,12 +7,13 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.MessageMq;
 import com.RabbitConfig;
 
-@EnableAutoConfiguration
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @ComponentScan("com*")
 @EnableRabbit
 public class Application{
