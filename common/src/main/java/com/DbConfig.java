@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class DbConfig {
 
-	private final static String DB_ENV_VAR = "DATABASE_URL";
+	private final static String DB_ENV_VAR = "JDBC_DATABASE_URL";
 	
 	@Bean
 	public DataSource getDataSource() {
