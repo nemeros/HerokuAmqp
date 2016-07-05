@@ -11,10 +11,22 @@
 		
 		vm.name = null;
 		vm.valeur = null;
+		vm.listMsg = null;
+		
 		vm.submit = submit;
+		vm.refreshMsg = refreshMsg;
 		
 		
-		$log.debug("Init Main");
+		function refreshMsg(){			
+			helloService.getMsg().then(
+					function successCallBack(response){
+						vm.listMsg = response.data;
+					},
+					function errorCallBack(response){
+						$log.error(angular.toJson(response));
+					});
+		}
+			
 		
 		function submit(){
 			var message = new Object();

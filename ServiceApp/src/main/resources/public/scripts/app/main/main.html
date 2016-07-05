@@ -1,33 +1,45 @@
-<div class="container">
-	<form novalidate>
-		<div class="panel panel-default">
-			<div class="panel-body">
-				<div class="form-horizontal">
-					<div class="form-group">
-						<label for="inputName" class="col-sm-2 control-label">Name :</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputName" placeholder="Name" data-ng-model="mainVm.name"/>
-					    </div>			
-					</div>
-					<div class="form-group">
-						<label for="inputName" class="col-sm-2 control-label">Valeur :</label>
-					    <div class="col-sm-10">
-					      <input type="text" class="form-control" id="inputName" placeholder="Valeur" data-ng-model="mainVm.valeur"/>
-					    </div>			
-					</div>
-					<div class="form-group">
-						<button type="button" class="btn btn-success" data-ng-click="mainVm.submit()">Submit</button>
-					</div>
+<form novalidate>
+<div class="container" data-ng-init="mainVm.refreshMsg()">
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label for="inputName" class="col-sm-2 control-label">Name :</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="inputName" placeholder="Name" data-ng-model="mainVm.name"/>
+				    </div>			
+				</div>
+				<div class="form-group">
+					<label for="inputName" class="col-sm-2 control-label">Valeur :</label>
+				    <div class="col-sm-10">
+				      <input type="text" class="form-control" id="inputName" placeholder="Valeur" data-ng-model="mainVm.valeur"/>
+				    </div>			
+				</div>
+				<div >
+					<button type="button" class="btn btn-success" data-ng-click="mainVm.submit()">Submit</button>
 				</div>
 			</div>
 		</div>
-	</form>
+	</div>
+
 	<div class="panel panel-default">
-		<div class="panel-body">
-			<div class="form-control">
-			
-			
-			</div>
+		<div class="panel-heading">
+			<button type="button" class="btn btn-success" data-ng-click="mainVm.refreshMsg()">Refresh</button>
 		</div>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Valeur</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr data-ng-repeat="msg in mainVm.listMsg">
+						<td>{{::msg.name}}</td>
+						<td>{{::msg.valeur}}</td>
+					</tr>
+				</tbody>
+			</table>			
 	</div>
 </div>
+</form>
